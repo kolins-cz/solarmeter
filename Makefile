@@ -27,7 +27,7 @@ CPPFLAGS += -DVERSION_BUILD_DATE=\""$(shell date "+%F %T")"\" \
             -DVERSION_BUILD=\"$(BUILD_INFO)\"
 
 # define any directories containing header files other than /usr/include
-INCLUDES = -I./include -I/usr/include/libabbaurora
+INCLUDES = -I./include -I/usr/local/include/libabbaurora
 
 # define library paths in addition to /usr/lib
 LFLAGS =
