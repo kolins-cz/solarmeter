@@ -12,7 +12,7 @@ const std::set<std::string> Solarmeter::ValidKeys {"log_level", "mqtt_broker", "
 
 Solarmeter::Solarmeter(void)
 {
-  Inverter = new ABBAurora();;
+  Inverter = new ABBAurora(4);;
   Mqtt = new SolarmeterMqtt();
   Cfg = new SolarmeterConfig();
 }
