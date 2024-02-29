@@ -1,0 +1,13 @@
+[Unit]
+Description=Solarmeter Service
+After=network.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=solarmeter -c /etc/solarmeter/solarmeter.conf
+Restart=always
+RestartSec=10
+User=pi
+
+[Install]
+WantedBy=multi-user.target

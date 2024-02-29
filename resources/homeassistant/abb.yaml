@@ -1,0 +1,216 @@
+mqtt:
+  sensor:
+    - name: "ABB PVI Global State"
+      state_topic: "solarmeter/state"
+      value_template: "{{ value_json[0]['global_state'] }}"
+      json_attributes_topic: "solarmeter/state"
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI Inverter State"
+      state_topic: "solarmeter/state"
+      value_template: "{{ value_json[0]['inverter_state'] }}"
+      json_attributes_topic: "solarmeter/state"
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB MPPT1 State"
+      state_topic: "solarmeter/state"
+      value_template: "{{ value_json[0]['ch1_state'] }}"
+      json_attributes_topic: "solarmeter/state"
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB MPPT2 State"
+      state_topic: "solarmeter/state"
+      value_template: "{{ value_json[0]['ch2_state'] }}"
+      json_attributes_topic: "solarmeter/state"
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB Alarm State"
+      state_topic: "solarmeter/state"
+      value_template: "{{ value_json[0]['alarm_state'] }}"
+      json_attributes_topic: "solarmeter/state"
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    #------------------------------------------------------------
+    - name: "ABB PVI Grid Power"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].grid_power }}"
+      unit_of_measurement: "W"
+      json_attributes_topic: "grid_power"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: power
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI Grid Voltage"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].grid_voltage }}"
+      unit_of_measurement: "V"
+      json_attributes_topic: "grid_voltage"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: voltage
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI Grid Current"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].grid_current }}"
+      unit_of_measurement: "A"
+      json_attributes_topic: "grid_current"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: current
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI Grid Frequency"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].frequency }}"
+      unit_of_measurement: "Hz"
+      json_attributes_topic: "frequency"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: frequency
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    #--------------------------------------------------------------------------------
+    - name: "ABB PVI MPPT1 Power"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].power_p1 }}"
+      unit_of_measurement: "W"
+      json_attributes_topic: "power_p1"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: power
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI MPPT1 Voltage"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].voltage_p1 }}"
+      unit_of_measurement: "V"
+      json_attributes_topic: "voltage_p1"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: voltage
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI MPPT1 Current"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].current_p1 }}"
+      unit_of_measurement: "A"
+      json_attributes_topic: "current_p1"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: current
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    #--------------------------------------------------------------------------------
+    - name: "ABB PVI MPPT2 Power"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].power_p2 }}"
+      unit_of_measurement: "W"
+      json_attributes_topic: "power_p2"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: power
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI MPPT2 Voltage"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].voltage_p2 }}"
+      unit_of_measurement: "V"
+      json_attributes_topic: "voltage_p2"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: voltage
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "ABB PVI MPPT2 Current"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].current_p2 }}"
+      unit_of_measurement: "A"
+      json_attributes_topic: "current_p2"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: current
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    #--------------------------------------------------------------------------------
+    - name: "ABB PVI Efficiency"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].efficiency }}"
+      unit_of_measurement: "%"
+      json_attributes_topic: "efficiency"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: power_factor
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+      #--------------------------------------------------------------------------------
+    - name: "ABB PVI Inverter Temperature"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].inverter_temp }}"
+      unit_of_measurement: "°C"
+      json_attributes_topic: "inverter_temp"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: temperature
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+      #--------------------------------------------------------------------------------
+    - name: "ABB PVI Booster Temperature"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].booster_temp }}"
+      unit_of_measurement: "°C"
+      json_attributes_topic: "booster_temp"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: temperature
+      state_class: measurement
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    #--------------------------------------------------------------------------------
+    - name: "ABB PVI Total Energy"
+      state_topic: "solarmeter/live"
+      value_template: "{{ value_json[0].total_energy }}"
+      unit_of_measurement: "kWh"
+      json_attributes_topic: "total_energy"
+      json_attributes_template: "{{ value_json | tojson }}"
+      device_class: energy
+      state_class: total_increasing
+      availability_topic: "solarmeter/status"
+      payload_available: "online"
+      payload_not_available: "offline"
