@@ -1,0 +1,41 @@
+\hypertarget{SolarmeterMqtt_8h_source}{}\doxysection{Solarmeter\+Mqtt.\+h}
+\label{SolarmeterMqtt_8h_source}\index{include/SolarmeterMqtt.h@{include/SolarmeterMqtt.h}}
+\mbox{\hyperlink{SolarmeterMqtt_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SolarmeterMqtt\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SolarmeterMqtt\_h}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <mosquitto.h>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classSolarmeterMqtt}{SolarmeterMqtt}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7   \textcolor{keyword}{static} \textcolor{keywordtype}{void} OnConnectCallbackWrapper(\textcolor{keyword}{struct} mosquitto *mosq, \textcolor{keywordtype}{void} *obj, \textcolor{keywordtype}{int} connack\_code);}
+\DoxyCodeLine{8   \textcolor{keyword}{static} \textcolor{keywordtype}{void} LogCallbackWrapper(\textcolor{keyword}{struct} mosquitto *mosq, \textcolor{keywordtype}{void} *obj, \textcolor{keywordtype}{int} level, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11   \textcolor{keyword}{struct }mosquitto *Mosq;}
+\DoxyCodeLine{12   \textcolor{keywordtype}{void} OnConnectCallback(\textcolor{keyword}{struct} mosquitto *mosq, \textcolor{keywordtype}{void} *obj, \textcolor{keywordtype}{int} connack\_code);}
+\DoxyCodeLine{13   \textcolor{keywordtype}{void} LogCallback(\textcolor{keyword}{struct} mosquitto *mosq, \textcolor{keywordtype}{void} *obj, \textcolor{keywordtype}{int} level, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{14   std::string ErrorMessage;}
+\DoxyCodeLine{15   \textcolor{keyword}{volatile} \textcolor{keywordtype}{bool} IsConnected;}
+\DoxyCodeLine{16   \textcolor{keyword}{volatile} \textcolor{keywordtype}{bool} NotifyOnlineFlag;}
+\DoxyCodeLine{17   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} Log;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20   \mbox{\hyperlink{classSolarmeterMqtt_ac8e85e2d9a5c93e6b0b0c58a6bc61444}{SolarmeterMqtt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{21   \mbox{\hyperlink{classSolarmeterMqtt_a6d1b9b183ae9469a3b38ed20d27c913e}{\string~SolarmeterMqtt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{22   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolarmeterMqtt_ad9748f548a96da191e08945e975d33be}{SetLogLevel}}(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \&log\_level);}
+\DoxyCodeLine{23   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_acbd46995fe51a5f7805269638e91a65f}{Begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{24   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_abe43c4629e5c3a4d4d52b370bcfa3831}{Connect}}(\textcolor{keyword}{const} std::string \&host, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&port, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&keepalive);}
+\DoxyCodeLine{25   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_a70593fbb0ca5a266fcbc365609020da5}{SetUserPassAuth}}(\textcolor{keyword}{const} std::string \&user, \textcolor{keyword}{const} std::string \&pass);}
+\DoxyCodeLine{26   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_ae57b7d562e851f368a2c274eb618b93a}{SetLastWillTestament}}(\textcolor{keyword}{const} std::string \&message, \textcolor{keyword}{const} std::string \&topic, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&qos, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&retain);}
+\DoxyCodeLine{27   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_a27c6aa7d3d893cdc3984535d97c88ef1}{SetTlsConnection}}(\textcolor{keyword}{const} std::string \&cafile, \textcolor{keyword}{const} std::string \&capath);}
+\DoxyCodeLine{28   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_a1d4c12691943cb1ef82cbaf6780ed6a5}{PublishMessage}}(\textcolor{keyword}{const} std::string \&message, \textcolor{keyword}{const} std::string \&topic, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&qos, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&retain);}
+\DoxyCodeLine{29   std::string \mbox{\hyperlink{classSolarmeterMqtt_a185470fad85427a9761805e777893d87}{GetErrorMessage}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{30   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_ac2e3234f37cc69cfdf9d73d38599fc00}{GetConnectStatus}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{31   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSolarmeterMqtt_aed07a8cdb4a1ecea0105266fe6908986}{GetNotifyOnlineFlag}}(\textcolor{keywordtype}{void}) \textcolor{keyword}{const};}
+\DoxyCodeLine{32   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolarmeterMqtt_a9dde6d27b662abe565f66f2ba3d56a1b}{SetNotifyOnlineFlag}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&flag);}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

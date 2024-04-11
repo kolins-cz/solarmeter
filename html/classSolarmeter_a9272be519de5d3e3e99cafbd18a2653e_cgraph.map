@@ -1,0 +1,16 @@
+<map id="Solarmeter::Setup" name="Solarmeter::Setup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,340,144,367"/>
+<area shape="rect" id="node2" href="$classSolarmeterConfig.html#ab670ca1815559c5bd0cc81e642488625" title=" " alt="" coords="225,5,405,32"/>
+<area shape="rect" id="node3" href="$classSolarmeterMqtt.html#acbd46995fe51a5f7805269638e91a65f" title=" " alt="" coords="230,56,399,83"/>
+<area shape="rect" id="node4" href="$classSolarmeterMqtt.html#abe43c4629e5c3a4d4d52b370bcfa3831" title=" " alt="" coords="222,107,407,133"/>
+<area shape="rect" id="node5" href="$classSolarmeterConfig.html#a235beaf5bf6724939e901ef889a7bf6c" title=" " alt="" coords="216,158,413,199"/>
+<area shape="rect" id="node6" href="$classSolarmeterMqtt.html#a185470fad85427a9761805e777893d87" title=" " alt="" coords="221,223,408,265"/>
+<area shape="rect" id="node7" href="$classSolarmeterConfig.html#adf3b30795b23bc6739ba475904393c33" title=" " alt="" coords="213,289,416,316"/>
+<area shape="rect" id="node8" href="$classSolarmeterConfig.html#a7b4248aca16f1cd2b892eab81574ef09" title=" " alt="" coords="211,340,418,367"/>
+<area shape="rect" id="node9" href="$classSolarmeterMqtt.html#ae57b7d562e851f368a2c274eb618b93a" title=" " alt="" coords="212,391,417,433"/>
+<area shape="rect" id="node10" href="$classSolarmeterMqtt.html#ad9748f548a96da191e08945e975d33be" title=" " alt="" coords="209,457,420,484"/>
+<area shape="rect" id="node11" href="$classSolarmeterMqtt.html#a27c6aa7d3d893cdc3984535d97c88ef1" title=" " alt="" coords="192,508,437,535"/>
+<area shape="rect" id="node12" href="$classSolarmeterMqtt.html#a70593fbb0ca5a266fcbc365609020da5" title=" " alt="" coords="193,559,436,585"/>
+<area shape="rect" id="node13" href="$classSolarmeterConfig.html#ad3ee316c35ffb30b71a64a0f68ee544b" title=" " alt="" coords="205,609,424,636"/>
+<area shape="rect" id="node14" href="$classSolarmeterConfig.html#a6e35edc480d25c029b3e0deae80f7d4d" title=" " alt="" coords="201,660,428,687"/>
+</map>

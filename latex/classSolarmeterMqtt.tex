@@ -1,0 +1,213 @@
+\hypertarget{classSolarmeterMqtt}{}\doxysection{Solarmeter\+Mqtt Class Reference}
+\label{classSolarmeterMqtt}\index{SolarmeterMqtt@{SolarmeterMqtt}}
+
+
+{\ttfamily \#include $<$Solarmeter\+Mqtt.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSolarmeterMqtt_ac8e85e2d9a5c93e6b0b0c58a6bc61444}{Solarmeter\+Mqtt}} (void)
+\item 
+\mbox{\hyperlink{classSolarmeterMqtt_a6d1b9b183ae9469a3b38ed20d27c913e}{$\sim$\+Solarmeter\+Mqtt}} (void)
+\item 
+void \mbox{\hyperlink{classSolarmeterMqtt_ad9748f548a96da191e08945e975d33be}{Set\+Log\+Level}} (const unsigned char \&log\+\_\+level)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_acbd46995fe51a5f7805269638e91a65f}{Begin}} (void)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_abe43c4629e5c3a4d4d52b370bcfa3831}{Connect}} (const std\+::string \&host, const int \&port, const int \&keepalive)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_a70593fbb0ca5a266fcbc365609020da5}{Set\+User\+Pass\+Auth}} (const std\+::string \&user, const std\+::string \&pass)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_ae57b7d562e851f368a2c274eb618b93a}{Set\+Last\+Will\+Testament}} (const std\+::string \&message, const std\+::string \&topic, const int \&qos, const bool \&retain)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_a27c6aa7d3d893cdc3984535d97c88ef1}{Set\+Tls\+Connection}} (const std\+::string \&cafile, const std\+::string \&capath)
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_a1d4c12691943cb1ef82cbaf6780ed6a5}{Publish\+Message}} (const std\+::string \&message, const std\+::string \&topic, const int \&qos, const bool \&retain)
+\item 
+std\+::string \mbox{\hyperlink{classSolarmeterMqtt_a185470fad85427a9761805e777893d87}{Get\+Error\+Message}} (void) const
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_ac2e3234f37cc69cfdf9d73d38599fc00}{Get\+Connect\+Status}} (void) const
+\item 
+bool \mbox{\hyperlink{classSolarmeterMqtt_aed07a8cdb4a1ecea0105266fe6908986}{Get\+Notify\+Online\+Flag}} (void) const
+\item 
+void \mbox{\hyperlink{classSolarmeterMqtt_a9dde6d27b662abe565f66f2ba3d56a1b}{Set\+Notify\+Online\+Flag}} (const bool \&flag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSolarmeterMqtt_ac8e85e2d9a5c93e6b0b0c58a6bc61444}\label{classSolarmeterMqtt_ac8e85e2d9a5c93e6b0b0c58a6bc61444}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SolarmeterMqtt@{SolarmeterMqtt}}
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SolarmeterMqtt()}{SolarmeterMqtt()}}
+{\footnotesize\ttfamily Solarmeter\+Mqtt\+::\+Solarmeter\+Mqtt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classSolarmeterMqtt_a6d1b9b183ae9469a3b38ed20d27c913e}\label{classSolarmeterMqtt_a6d1b9b183ae9469a3b38ed20d27c913e}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!````~SolarmeterMqtt@{$\sim$SolarmeterMqtt}}
+\index{````~SolarmeterMqtt@{$\sim$SolarmeterMqtt}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{$\sim$SolarmeterMqtt()}{~SolarmeterMqtt()}}
+{\footnotesize\ttfamily Solarmeter\+Mqtt\+::$\sim$\+Solarmeter\+Mqtt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSolarmeterMqtt_acbd46995fe51a5f7805269638e91a65f}\label{classSolarmeterMqtt_acbd46995fe51a5f7805269638e91a65f}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!Begin@{Begin}}
+\index{Begin@{Begin}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{classSolarmeterMqtt_acbd46995fe51a5f7805269638e91a65f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_abe43c4629e5c3a4d4d52b370bcfa3831}\label{classSolarmeterMqtt_abe43c4629e5c3a4d4d52b370bcfa3831}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!Connect@{Connect}}
+\index{Connect@{Connect}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Connect (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{host,  }\item[{const int \&}]{port,  }\item[{const int \&}]{keepalive }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_abe43c4629e5c3a4d4d52b370bcfa3831_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_ac2e3234f37cc69cfdf9d73d38599fc00}\label{classSolarmeterMqtt_ac2e3234f37cc69cfdf9d73d38599fc00}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!GetConnectStatus@{GetConnectStatus}}
+\index{GetConnectStatus@{GetConnectStatus}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{GetConnectStatus()}{GetConnectStatus()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Get\+Connect\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_ac2e3234f37cc69cfdf9d73d38599fc00_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_a185470fad85427a9761805e777893d87}\label{classSolarmeterMqtt_a185470fad85427a9761805e777893d87}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!GetErrorMessage@{GetErrorMessage}}
+\index{GetErrorMessage@{GetErrorMessage}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{GetErrorMessage()}{GetErrorMessage()}}
+{\footnotesize\ttfamily std\+::string Solarmeter\+Mqtt\+::\+Get\+Error\+Message (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_a185470fad85427a9761805e777893d87_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_aed07a8cdb4a1ecea0105266fe6908986}\label{classSolarmeterMqtt_aed07a8cdb4a1ecea0105266fe6908986}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!GetNotifyOnlineFlag@{GetNotifyOnlineFlag}}
+\index{GetNotifyOnlineFlag@{GetNotifyOnlineFlag}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{GetNotifyOnlineFlag()}{GetNotifyOnlineFlag()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Get\+Notify\+Online\+Flag (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_aed07a8cdb4a1ecea0105266fe6908986_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_a1d4c12691943cb1ef82cbaf6780ed6a5}\label{classSolarmeterMqtt_a1d4c12691943cb1ef82cbaf6780ed6a5}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!PublishMessage@{PublishMessage}}
+\index{PublishMessage@{PublishMessage}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{PublishMessage()}{PublishMessage()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Publish\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{topic,  }\item[{const int \&}]{qos,  }\item[{const bool \&}]{retain }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_a1d4c12691943cb1ef82cbaf6780ed6a5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_ae57b7d562e851f368a2c274eb618b93a}\label{classSolarmeterMqtt_ae57b7d562e851f368a2c274eb618b93a}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SetLastWillTestament@{SetLastWillTestament}}
+\index{SetLastWillTestament@{SetLastWillTestament}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SetLastWillTestament()}{SetLastWillTestament()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Set\+Last\+Will\+Testament (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{topic,  }\item[{const int \&}]{qos,  }\item[{const bool \&}]{retain }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_ae57b7d562e851f368a2c274eb618b93a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_ad9748f548a96da191e08945e975d33be}\label{classSolarmeterMqtt_ad9748f548a96da191e08945e975d33be}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SetLogLevel@{SetLogLevel}}
+\index{SetLogLevel@{SetLogLevel}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SetLogLevel()}{SetLogLevel()}}
+{\footnotesize\ttfamily void Solarmeter\+Mqtt\+::\+Set\+Log\+Level (\begin{DoxyParamCaption}\item[{const unsigned char \&}]{log\+\_\+level }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_ad9748f548a96da191e08945e975d33be_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_a9dde6d27b662abe565f66f2ba3d56a1b}\label{classSolarmeterMqtt_a9dde6d27b662abe565f66f2ba3d56a1b}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SetNotifyOnlineFlag@{SetNotifyOnlineFlag}}
+\index{SetNotifyOnlineFlag@{SetNotifyOnlineFlag}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SetNotifyOnlineFlag()}{SetNotifyOnlineFlag()}}
+{\footnotesize\ttfamily void Solarmeter\+Mqtt\+::\+Set\+Notify\+Online\+Flag (\begin{DoxyParamCaption}\item[{const bool \&}]{flag }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_a9dde6d27b662abe565f66f2ba3d56a1b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_a27c6aa7d3d893cdc3984535d97c88ef1}\label{classSolarmeterMqtt_a27c6aa7d3d893cdc3984535d97c88ef1}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SetTlsConnection@{SetTlsConnection}}
+\index{SetTlsConnection@{SetTlsConnection}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SetTlsConnection()}{SetTlsConnection()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Set\+Tls\+Connection (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cafile,  }\item[{const std\+::string \&}]{capath }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_a27c6aa7d3d893cdc3984535d97c88ef1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSolarmeterMqtt_a70593fbb0ca5a266fcbc365609020da5}\label{classSolarmeterMqtt_a70593fbb0ca5a266fcbc365609020da5}} 
+\index{SolarmeterMqtt@{SolarmeterMqtt}!SetUserPassAuth@{SetUserPassAuth}}
+\index{SetUserPassAuth@{SetUserPassAuth}!SolarmeterMqtt@{SolarmeterMqtt}}
+\doxysubsubsection{\texorpdfstring{SetUserPassAuth()}{SetUserPassAuth()}}
+{\footnotesize\ttfamily bool Solarmeter\+Mqtt\+::\+Set\+User\+Pass\+Auth (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{user,  }\item[{const std\+::string \&}]{pass }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSolarmeterMqtt_a70593fbb0ca5a266fcbc365609020da5_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{SolarmeterMqtt_8h}{Solarmeter\+Mqtt.\+h}}\item 
+src/\mbox{\hyperlink{SolarmeterMqtt_8cpp}{Solarmeter\+Mqtt.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,20 @@
+The Solarmeter daemon is built upon the \href{https://ahpohl.github.io/libabbaurora/}{\texttt{ libabbaurora}} library to communicate with the ABB Aurora inverter. The daemon reads the energy production from the inverter, outputs a JSON formatted string and sends it to a MQTT broker on the network. From there, the data is forwarded into a time series database for permanent data storage and for visualization. The complete software stack consists of the following components, which need to be installed and configured separately\+:
+\begin{DoxyItemize}
+\item Solarmeter daemon with RS485 dongle for data readout
+\item Mosquitto MQTT broker
+\item Node-\/\+RED (MQTT client, Postgre\+SQL and optional email alerts)
+\item Postgre\+SQL with Timescale\+DB and pg\+\_\+cron extensions
+\item Grafana for visualization
+\end{DoxyItemize}
+
+The software stack is light weight in terms of necessary resources and runs on any SBC such as an Odroid C2/\+C4 or Raspberry Pi 3/4. Step-\/by-\/step \href{https://github.com/ahpohl/smartmeter/wiki}{\texttt{ instructions}} can be found at the \href{https://github.com/ahpohl/smartmeter}{\texttt{ Smartmeter}} sister project wiki pages. The Aurora converter needs to be connected to the host USB with a \href{https://www.waveshare.com/usb-to-rs232-485-ttl.htm}{\texttt{ RS485-\/to-\/\+USB adapter}} like the one from Waveshare.\hypertarget{md_README_autotoc_md8}{}\doxysection{Run in docker}\label{md_README_autotoc_md8}
+You can build and run the binary from docker. This is an easy solution if you want to run on a less setup (like synology)
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker -\/v \$(pwd)/config.conf:/app/config.conf -\/-\/device /dev/ttyUSB0 run jekkos/solarmeter:latest -\/c /app/config.conf}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md9}{}\doxysection{Changelog}\label{md_README_autotoc_md9}
+All notable changes and releases are documented in the \mbox{\hyperlink{md_CHANGELOG}{CHANGELOG}}.\hypertarget{md_README_autotoc_md10}{}\doxysection{License}\label{md_README_autotoc_md10}
+This project is licensed under the MIT license -\/ see the \mbox{[}LICENSE\mbox{]}(LICENSE) file for details 

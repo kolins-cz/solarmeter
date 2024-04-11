@@ -14,6 +14,13 @@ void sig_handler(int)
   shutdown = true;
 }
 
+/**
+ * @brief The main function of the program.
+ *
+ * @param argc The number of command-line arguments.
+ * @param argv An array of command-line arguments.
+ * @return The exit status of the program.
+ */
 int main(int argc, char* argv[])
 {
   struct sigaction action;
@@ -68,6 +75,8 @@ int main(int argc, char* argv[])
     return EXIT_SUCCESS;
   }
 
+  
+
   if (version)
   {
     std::cout << "Version " << VERSION_TAG 
@@ -93,19 +102,23 @@ int main(int argc, char* argv[])
   while (shutdown == false)
   {
     std::this_thread::sleep_for(std::chrono::seconds(1));
-	  if (!meter->Receive())
-	  {
+
+    // Receive data from Solarmeter
+    if (!meter->Receive())
+    {
       if (timeout < 5)
       {
-	      std::cout << meter->GetErrorMessage() << std::endl;
+        std::cout << meter->GetErrorMessage() << std::endl;
         ++timeout;
       }
       continue;
- 	  }
+    }
     else
     {
       timeout = 0;
     }
+
+    // Publish the received data
     if (!meter->Publish())
     {
       std::cout << meter->GetErrorMessage() << std::endl;
