@@ -111,7 +111,6 @@ bool Solarmeter::Setup(const std::string &config)
     ErrorMessage = Mqtt->GetErrorMessage();
     return false;
   }
-  std::this_thread::sleep_for(std::chrono::milliseconds(1));
   
   return true;
 }
@@ -294,7 +293,8 @@ bool Solarmeter::Publish(void)
     if (!Mqtt->PublishMessage("online", Cfg->GetValue("mqtt_topic") + "/status", 1, true))
     {
       ErrorMessage = Mqtt->GetErrorMessage();
-      return false;
+      // Don't return false on publish failure - just log and continue
+      std::cout << "Failed to publish online status: " << ErrorMessage << std::endl;
     }
   }
 
@@ -309,16 +309,29 @@ bool Solarmeter::Publish(void)
     if (!(Mqtt->PublishMessage(oss.str(), Cfg->GetValue("mqtt_topic") + "/state", 0, false)))
     {
       ErrorMessage = Mqtt->GetErrorMessage();
-      return false;
+      // Don't return false on publish failure - just log and continue
+      std::cout << "Failed to publish state: " << ErrorMessage << std::endl;
     }
-    previous_state = State;
+    else
+    {
+      previous_state = State;
+    }
   }
   if (Mqtt->GetConnectStatus())
   {
     if (!(Mqtt->PublishMessage(Payload.str(), Cfg->GetValue("mqtt_topic") + "/live", 0, false)))
     {
       ErrorMessage = Mqtt->GetErrorMessage();
-      return false;
+      // Don't return false on publish failure - just log and continue
+      std::cout << "Failed to publish live data: " << ErrorMessage << std::endl;
+    }
+  }
+  else
+  {
+    // Try to reconnect if disconnected
+    if (!Mqtt->Reconnect())
+    {
+      std::cout << "MQTT reconnection attempt failed: " << Mqtt->GetErrorMessage() << std::endl;
     }
   }
   Mqtt->SetNotifyOnlineFlag(false);

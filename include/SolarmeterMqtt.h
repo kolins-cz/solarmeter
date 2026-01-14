@@ -5,13 +5,18 @@
 class SolarmeterMqtt
 {
   static void OnConnectCallbackWrapper(struct mosquitto *mosq, void *obj, int connack_code);
+  static void OnDisconnectCallbackWrapper(struct mosquitto *mosq, void *obj, int rc);
   static void LogCallbackWrapper(struct mosquitto *mosq, void *obj, int level, const char *str);
 
 private:
   struct mosquitto *Mosq;
   void OnConnectCallback(struct mosquitto *mosq, void *obj, int connack_code);
+  void OnDisconnectCallback(struct mosquitto *mosq, void *obj, int rc);
   void LogCallback(struct mosquitto *mosq, void *obj, int level, const char *str);
   std::string ErrorMessage;
+  std::string Host;
+  int Port;
+  int Keepalive;
   volatile bool IsConnected;
   volatile bool NotifyOnlineFlag;
   unsigned char Log;
@@ -26,6 +31,7 @@ public:
   bool SetLastWillTestament(const std::string &message, const std::string &topic, const int &qos, const bool &retain);
   bool SetTlsConnection(const std::string &cafile, const std::string &capath);
   bool PublishMessage(const std::string &message, const std::string &topic, const int &qos, const bool &retain);
+  bool Reconnect(void);
   std::string GetErrorMessage(void) const;
   bool GetConnectStatus(void) const;
   bool GetNotifyOnlineFlag(void) const;

@@ -8,6 +8,8 @@ SolarmeterMqtt::SolarmeterMqtt(void): Log(0)
 {
   IsConnected = false;
   NotifyOnlineFlag = false;
+  Port = 0;
+  Keepalive = 60;
 }
 
 SolarmeterMqtt::~SolarmeterMqtt(void)
@@ -36,6 +38,7 @@ bool SolarmeterMqtt::Begin(void)
     return false;
   }
   mosquitto_connect_callback_set(Mosq, OnConnectCallbackWrapper);
+  mosquitto_disconnect_callback_set(Mosq, OnDisconnectCallbackWrapper);
   mosquitto_log_callback_set(Mosq, LogCallbackWrapper);
   return true;
 }
@@ -75,6 +78,10 @@ bool SolarmeterMqtt::SetTlsConnection(const std::string &cafile, const std::stri
 
 bool SolarmeterMqtt::Connect(const std::string &host, const int &port, const int &keepalive)
 {
+  Host = host;
+  Port = port;
+  Keepalive = keepalive;
+  
   int rc = 0;
   if ((rc = mosquitto_loop_start(Mosq)))
   {
@@ -103,13 +110,41 @@ bool SolarmeterMqtt::SetLastWillTestament(const std::string &message, const std:
 
 bool SolarmeterMqtt::PublishMessage(const std::string &message, const std::string &topic, const int &qos, const bool &retain)
 {
+  if (!IsConnected)
+  {
+    ErrorMessage = std::string("Mosquitto not connected, cannot publish");
+    return false;
+  }
+  
   int rc = 0;
   if ((rc = mosquitto_publish(Mosq, nullptr, topic.c_str(), message.size(), message.c_str(), qos, retain)))
   {
     ErrorMessage = std::string("Mosquitto publish failed: ") + mosquitto_strerror(rc);
-    IsConnected = false;
     return false;
   }
+  return true;
+}
+
+bool SolarmeterMqtt::Reconnect(void)
+{
+  if (IsConnected)
+  {
+    return true; // Already connected
+  }
+  
+  if (Host.empty())
+  {
+    ErrorMessage = std::string("Cannot reconnect: no host configured");
+    return false;
+  }
+  
+  int rc = 0;
+  if ((rc = mosquitto_reconnect_async(Mosq)))
+  {
+    ErrorMessage = std::string("Mosquitto reconnect failed: ") + mosquitto_strerror(rc);
+    return false;
+  }
+  
   return true;
 }
 
@@ -151,6 +186,30 @@ void SolarmeterMqtt::OnConnectCallbackWrapper(struct mosquitto *mosq, void *obj,
 {
   auto *p = reinterpret_cast<SolarmeterMqtt*>(obj);
   return p->SolarmeterMqtt::OnConnectCallback(mosq, obj, connack_code);
+}
+
+void SolarmeterMqtt::OnDisconnectCallback(struct mosquitto *mosq, void *obj, int rc)
+{
+  IsConnected = false;
+  NotifyOnlineFlag = false;
+  
+  if (Log & static_cast<unsigned char>(LogLevelEnum::MQTT))
+  {
+    if (rc == 0)
+    {
+      std::cout << "MQTT disconnected cleanly" << std::endl;
+    }
+    else
+    {
+      std::cout << "MQTT unexpected disconnect: " << mosquitto_strerror(rc) << std::endl;
+    }
+  }
+}
+
+void SolarmeterMqtt::OnDisconnectCallbackWrapper(struct mosquitto *mosq, void *obj, int rc)
+{
+  auto *p = reinterpret_cast<SolarmeterMqtt*>(obj);
+  return p->SolarmeterMqtt::OnDisconnectCallback(mosq, obj, rc);
 }
 
 void SolarmeterMqtt::LogCallback(struct mosquitto *mosq, void *obj, int level, const char *str)

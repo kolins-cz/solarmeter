@@ -4,6 +4,7 @@ After=network.target
 Wants=network-online.target systemd-networkd-wait-online.service
 
 [Service]
+Type=simple
 ExecStart=solarmeter -c /etc/solarmeter/solarmeter.conf
 Restart=always
 RestartSec=10
